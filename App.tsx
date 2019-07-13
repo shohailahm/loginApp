@@ -43,7 +43,6 @@ const App = () => {
             <Provider store={store}>
               <AppContainer/>
             </Provider>
-            
           </View>
     </Fragment>
   );

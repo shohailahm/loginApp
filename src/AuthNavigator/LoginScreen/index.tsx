@@ -65,11 +65,11 @@ class LoginScreen extends Component {
   
 
 
-  componentDidUpdate(){
+  componentDidUpdate(nextprops){
     if(this.props.isLoggedIn){
       return this.props.navigation.navigate('App');
     }
-    if(this.props.loginres){
+    if(nextprops.loginres!=this.props.loginres){
       if(this.props.loginres.message){
         Snackbar.show({
          title: 'User Not Found!',

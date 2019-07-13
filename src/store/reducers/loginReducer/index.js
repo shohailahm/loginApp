@@ -9,7 +9,9 @@ export default (state = initialState, action) => {
         case USERDETAILS:
          return{...state,resUser:action.data};
         case LOGINRES:
-         return {...state,loginres:action.data,isLoggedIn:action.data.success}
+         return {...state,loginres:action.data,isLoggedIn:action.data.success};
+        case "LOGOUT":
+          return{state:initialState}
          default:
             return state;
     }

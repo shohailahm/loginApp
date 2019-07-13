@@ -36,7 +36,8 @@ class Registration extends Component<IState> {
       name:this.state.userName,
       password:this.state.password,
     }
-    this.props.dispatch(userActions.AddUser(details);
+    this.props.dispatch(userActions.AddUser(details));
+
     return Snackbar.show({
       title: 'User Added!',
       duration: Snackbar.LENGTH_SHORT,

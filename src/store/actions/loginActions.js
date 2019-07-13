@@ -3,7 +3,8 @@ import { AsyncStorage, ToastAndroid } from 'react-native';
 
 export const userActions={
     checkLogin,
-    AddUser
+    AddUser,
+    logout
 }
 
 
@@ -16,11 +17,11 @@ function checkLogin(data){
                 let matches= users.filter((item,i)=>{
                 return item.name===data.name && item.password==data.password;
            })
-           if(matches){
+           if(matches.length>0){
                return dispatch(loginRes({success:true}))
            }
            else{
-              return dispatch(loginRes({success:false,message:'user Not Found'}))
+              dispatch(loginRes({success:false,message:'user Not Found'}))
            }
           }
       })
@@ -48,7 +49,12 @@ function AddUser(details){
         }
         usersArr.push(user);
         AsyncStorage.setItem("Users",JSON.stringify(usersArr))
-        return dispatch({type:USERDETAILS,data:{succes:true,message:"Added!"}})
-
+        return dispatch({type:USERDETAILS,data:{succes:true,message:"Added!"}});
     }    
+}
+
+function logout(){
+    return dispatch=>{
+        return dispatch({type:"LOGOUT"})
+    }
 }
