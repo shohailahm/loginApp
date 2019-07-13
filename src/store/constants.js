@@ -1,0 +1,2 @@
+export const USERDETAILS="USERDETAILS";
+export const LOGINRES="LOGINRES";
